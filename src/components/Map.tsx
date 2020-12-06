@@ -24,7 +24,7 @@ export function Map() {
   return (
     <Card className={styles.styledCard}>
       <Typography gutterBottom variant="h5" component="h2">
-        Uzbekistan map
+        O'zbekiston kartasi
       </Typography>
       <div className={styles.container}>
         <VectorMap {...uzbekistanMap} layerProps={layerProps} />

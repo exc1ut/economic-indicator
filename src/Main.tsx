@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import "./App.css";
-import { Map, SideBar } from "./components";
+import { Map, SideBar, MyChart } from "./components";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { useMap } from "./context/MapContext";
 
@@ -25,7 +25,7 @@ function Main() {
       <CssBaseline />
       <AppBar color="default" position="static">
         <Toolbar>
-          <Typography variant="h6">Communal Online</Typography>
+          <Typography variant="h6">Economic indicator</Typography>
         </Toolbar>
       </AppBar>
 
@@ -47,6 +47,7 @@ function Main() {
           </Grid>
         </Grid>
       )}
+      <MyChart />
     </ThemeProvider>
   );
 }
