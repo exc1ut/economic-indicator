@@ -1,0 +1,1 @@
+declare module '@south-paw/react-vector-maps'

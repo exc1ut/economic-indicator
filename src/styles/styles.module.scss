@@ -1,0 +1,40 @@
+.container {
+    margin: 1rem auto;
+    padding: 25px;
+    width: 100%;
+  
+    svg {
+      stroke: #fff;
+  
+      // All layers are just path elements
+      path {
+        fill: #a82b2b;
+        cursor: pointer;
+        outline: none;
+  
+        // When a layer is hovered
+        &:hover {
+          fill:blue;
+        }
+  
+        // When a layer is focused.
+        &:focus {
+          fill: rgba(168,43,43,0.6);
+        }
+  
+        // When a layer is 'checked' (via checkedLayers prop).
+        &[aria-checked='true'] {
+          fill: rgba(56,43,168,1);
+        }
+  
+        // When a layer is 'selected' (via currentLayers prop).
+        &[aria-current='true'] {
+          fill: rgba(56,43,168,0.83);
+        }
+      }
+    }
+}
+.styledCard{
+  margin:25px;
+  padding:15px;
+}
