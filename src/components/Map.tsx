@@ -4,6 +4,7 @@ import { Box, Card, Typography } from "@material-ui/core";
 import styles from "../styles/styles.module.scss";
 import { useState } from "react";
 import { useMap } from "../context/MapContext";
+import { motion } from "framer-motion";
 
 export function Map() {
   const { selectedCountry, setSelectedCountry } = useMap();
@@ -21,14 +22,26 @@ export function Map() {
       setSelectedCountry(target.attributes.name.value),
   };
 
+  const variants = {
+    init: { opacity: 0 },
+    end: { opacity: 1 },
+  };
+
   return (
-    <Card className={styles.styledCard}>
-      <Typography gutterBottom variant="h5" component="h2">
-        O'zbekiston kartasi
-      </Typography>
-      <div className={styles.container}>
-        <VectorMap {...uzbekistanMap} layerProps={layerProps} />
-      </div>
-    </Card>
+    <motion.div
+      variants={variants}
+      transition={{ duration: 1 }}
+      initial="init"
+      animate="end"
+    >
+      <Card style={{ height: 1000 }} className={styles.styledCard}>
+        <Typography gutterBottom variant="h5" component="h2">
+          O'zbekiston kartasi
+        </Typography>
+        <div className={styles.container}>
+          <VectorMap {...uzbekistanMap} layerProps={layerProps} />
+        </div>
+      </Card>
+    </motion.div>
   );
 }

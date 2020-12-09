@@ -7,7 +7,7 @@ type Props = {
 };
 
 export function MapContext({ children }: Props) {
-  const [selectedCountry, setSelectedCountry] = useState<any>(null);
+  const [selectedCountry, setSelectedCountry] = useState<any>("Toshkent");
 
   return (
     <AppContext.Provider value={{ selectedCountry, setSelectedCountry }}>

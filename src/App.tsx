@@ -1,11 +1,18 @@
 import { MapContext } from "./context/MapContext";
 import Main from "./Main";
 
+import { BrowserRouter as Router } from "react-router-dom";
+import { UserContext } from "./context/UserContext";
+
 function App() {
   return (
-    <MapContext>
-      <Main />
-    </MapContext>
+    <Router>
+      <UserContext>
+        <MapContext>
+          <Main />
+        </MapContext>
+      </UserContext>
+    </Router>
   );
 }
 

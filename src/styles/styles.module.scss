@@ -8,18 +8,23 @@
   
       // All layers are just path elements
       path {
-        fill: #a82b2b;
+        fill: rgb(76, 175, 80);
         cursor: pointer;
         outline: none;
+        transition: 0.5s;
   
         // When a layer is hovered
         &:hover {
-          fill:blue;
+          fill:rgb(255, 152, 0);
         }
   
         // When a layer is focused.
         &:focus {
-          fill: rgba(168,43,43,0.6);
+          fill:  rgba(76, 175, 80,0.6);
+        }
+
+        &:active {
+          transform:scale(0.95)
         }
   
         // When a layer is 'checked' (via checkedLayers prop).
@@ -37,4 +42,14 @@
 .styledCard{
   margin:25px;
   padding:15px;
+}
+.formCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap:30px;
+  padding-bottom: 50px;
+  padding-top: 30px;
+  width:400px
 }
