@@ -19,17 +19,17 @@ export const Register = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(e);
-
-    try {
-      const data = await Axios.post("http://192.168.1.15:5000/user", {
-        name,
-        email,
-        password,
-      });
-      history.push("/login");
-    } catch (error) {
-      setError(error);
-    }
+    setData({ email, password, name });
+    history.push("/");
+    // try {
+    //   const data = await Axios.post("http://192.168.1.15:5000/user", {
+    //     name,
+    //     email,
+    //     password,
+    //   });
+    // } catch (error) {
+    //   setError(error);
+    // }
   };
 
   const variants = {

@@ -1,4 +1,5 @@
 import {
+  Box,
   Card,
   Table,
   TableBody,
@@ -42,7 +43,18 @@ export function SideBar() {
       animate="end"
     >
       <Card style={{ height: 1000 }} className={styles.styledCard}>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography
+          gutterBottom
+          style={{ fontWeight: 900 }}
+          variant="h5"
+          component={motion.h2}
+          animate={{
+            scale: 1,
+          }}
+          initial={{
+            scale: 0,
+          }}
+        >
           {data.name}
         </Typography>
         <TableContainer>
@@ -51,8 +63,14 @@ export function SideBar() {
               {Object.entries(data.info).map((row: any, index) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={index}>
-                    <TableCell>{row[0]}</TableCell>
-                    <TableCell>{row[1]}</TableCell>
+                    <TableCell>
+                      <Box fontWeight={900}>{row[0]}</Box>
+                    </TableCell>
+                    <TableCell>
+                      <Box fontWeight={600} color={"#5E6975"}>
+                        {row[1]}
+                      </Box>
+                    </TableCell>
                   </TableRow>
                 );
               })}

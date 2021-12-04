@@ -8,6 +8,9 @@ import {
   LineChart,
   YAxis,
   ResponsiveContainer,
+  Area,
+  AreaChart,
+  Legend,
 } from "recharts";
 import info from "../data/Ist'emol narxlari indeksi dinamikasi.json";
 
@@ -15,21 +18,40 @@ export function MyChart() {
   return (
     <Card className={styles.styledCard}>
       <>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography
+          style={{ fontWeight: 900, margin: "15px 7px 20px 15px" }}
+          gutterBottom
+          variant="h5"
+          component="h2"
+        >
           O'zbekiston ist'emol narxlari indeksi dinamikasi
         </Typography>
         <Box style={{ display: "flex", marginTop: 40 }}>
-          <ResponsiveContainer width="100%" height={400}>
-            <LineChart
+          <ResponsiveContainer width="100%" height={450}>
+            <AreaChart
               data={info.data}
               margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
             >
-              <Line type="monotone" dataKey="value" stroke="#8884d8" />
-              <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+              <defs>
+                <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#551FFF" stopOpacity={0.2} />
+                  <stop offset="25%" stopColor="#551FFF" stopOpacity={0.1} />
+                  <stop offset="100%" stopColor="#551FFF" stopOpacity={0} />
+                </linearGradient>
+              </defs>
               <Tooltip />
+              <Legend />
               <XAxis dataKey="year" />
-              <YAxis />
-            </LineChart>
+              <YAxis dataKey="value" />
+              <Area
+                type="monotone"
+                dataKey="value"
+                stroke="#551FFF"
+                strokeWidth={2.5}
+                fillOpacity={1}
+                fill="url(#colorUv)"
+              />
+            </AreaChart>
           </ResponsiveContainer>
         </Box>
       </>

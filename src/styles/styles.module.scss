@@ -1,55 +1,57 @@
 .container {
-    margin: 1rem auto;
-    padding: 25px;
-    width: 100%;
-  
-    svg {
-      stroke: #fff;
-  
-      // All layers are just path elements
-      path {
-        fill: rgb(76, 175, 80);
-        cursor: pointer;
-        outline: none;
-        transition: 0.5s;
-  
-        // When a layer is hovered
-        &:hover {
-          fill:rgb(255, 152, 0);
-        }
-  
-        // When a layer is focused.
-        &:focus {
-          fill:  rgba(76, 175, 80,0.6);
-        }
+  margin: 1rem auto;
+  padding: 25px;
+  width: 100%;
 
-        &:active {
-          transform:scale(0.95)
-        }
-  
-        // When a layer is 'checked' (via checkedLayers prop).
-        &[aria-checked='true'] {
-          fill: rgba(56,43,168,1);
-        }
-  
-        // When a layer is 'selected' (via currentLayers prop).
-        &[aria-current='true'] {
-          fill: rgba(56,43,168,0.83);
-        }
+  svg {
+    stroke: #fff;
+    filter: drop-shadow(5px 9px 23px #e2c6cd);
+
+    // All layers are just path elements
+    path {
+      fill: #ff4872;
+      cursor: pointer;
+      outline: none;
+      transition: 0.5s;
+      stroke-width: 2.5px;
+
+      // When a layer is hovered
+      &:hover {
+        fill: #fd2254;
+      }
+
+      // When a layer is focused.
+      &:focus {
+        fill: #ff4872;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      // When a layer is 'checked' (via checkedLayers prop).
+      &[aria-checked="true"] {
+        fill: rgba(56, 43, 168, 1);
+      }
+
+      // When a layer is 'selected' (via currentLayers prop).
+      &[aria-current="true"] {
+        fill: rgba(56, 43, 168, 0.83);
       }
     }
+  }
 }
-.styledCard{
-  margin:25px;
-  padding:15px;
+.styledCard {
+  margin: 25px;
+  padding: 15px;
 }
 .formCard {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap:30px;
+  gap: 30px;
   padding-bottom: 50px;
   padding-top: 30px;
-  width:400px
+  width: 400px;
 }
