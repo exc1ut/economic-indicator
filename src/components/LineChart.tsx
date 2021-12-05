@@ -23,9 +23,7 @@ export function MyChart() {
           gutterBottom
           variant="h5"
           component="h2"
-        >
-          O'zbekiston ist'emol narxlari indeksi dinamikasi
-        </Typography>
+        ></Typography>
         <Box style={{ display: "flex", marginTop: 40 }}>
           <ResponsiveContainer width="100%" height={450}>
             <AreaChart
