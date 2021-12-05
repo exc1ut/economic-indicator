@@ -36,16 +36,9 @@ export function Map() {
     >
       <Card style={{ height: 1000 }} className={styles.styledCard}>
         <Typography style={{ fontWeight: 900 }} variant="h4" component="h2">
-          Map of the country
+          O'zbekiston kartasi
         </Typography>
-        <Typography
-          gutterBottom
-          style={{ fontWeight: 400, color: "#8B949E" }}
-          variant="subtitle1"
-          component="h2"
-        >
-          Information about your current plan and usages
-        </Typography>
+
         <div className={styles.container}>
           <VectorMap {...uzbekistanMap} layerProps={layerProps} />
         </div>

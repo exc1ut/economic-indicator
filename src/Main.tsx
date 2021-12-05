@@ -32,6 +32,10 @@ const StyledAppBar = styled(AppBar)`
   background-color: #fff;
 `;
 
+const Clickable = styled(Box)`
+  cursor: pointer;
+`;
+
 const theme = createMuiTheme({});
 
 function Main() {
@@ -45,9 +49,10 @@ function Main() {
       <Box style={{ backgroundColor: "#F8F9FC" }}>
         <StyledAppBar color="default" position="static">
           <Toolbar>
-            <Box flexGrow={1}>
+            <Clickable onClick={() => history.push("/")} flexGrow={1}>
               <img height={25} src="/logo.png" />
-            </Box>
+            </Clickable>
+
             {data == null ? (
               <Box>
                 <Button color="inherit" onClick={() => history.push("/login")}>

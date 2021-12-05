@@ -1,4 +1,13 @@
-import { Button, Card, TextField, Typography } from "@material-ui/core";
+import {
+  Button,
+  Card,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+  Typography,
+} from "@material-ui/core";
 import Axios from "axios";
 import { motion } from "framer-motion";
 import { FormEvent, useState } from "react";
@@ -10,6 +19,7 @@ export const Register = () => {
   const [name, setName] = useState<any>("");
   const [email, setEmail] = useState<any>("");
   const [password, setPassword] = useState<any>("");
+  const [type, setType] = useState<any>("");
   const [error, setError] = useState<any>(null);
 
   const history = useHistory();
@@ -48,6 +58,22 @@ export const Register = () => {
         <Card className={`${styles.styledCard} ${styles.formCard}`}>
           {error && "There are errors"}
           <Typography variant="h2">Register</Typography>
+          <FormControl style={{ width: 190 }}>
+            <InputLabel htmlFor="demo-customized-textbox">
+              Company type
+            </InputLabel>
+            <Select
+              labelId="demo-customized-select-label"
+              id="demo-customized-select"
+              label="Company type"
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+            >
+              <MenuItem value={"Investory"}>Investory</MenuItem>
+              <MenuItem value="Local Company">Local Company</MenuItem>
+            </Select>
+          </FormControl>
+          {type === "Local Company" && <TextField label="Company name" />}
           <TextField
             required
             value={name}
@@ -67,14 +93,14 @@ export const Register = () => {
             onChange={(text) => setPassword(text.target.value)}
           />
           <Button type="submit" variant="contained" color="primary">
-            Sign in
+            Sign Up
           </Button>
           <Button
             onClick={() => history.push("/")}
             variant="text"
             color="default"
           >
-            Go to main page
+            Go to the main page
           </Button>
         </Card>
       </form>

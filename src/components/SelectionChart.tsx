@@ -1,4 +1,11 @@
-import { Box, Button, ButtonGroup, Card, Typography } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  ButtonProps,
+  Card,
+  Typography,
+} from "@material-ui/core";
 import styles from "../styles/styles.module.scss";
 import {
   Line,
@@ -13,33 +20,28 @@ import {
   Area,
 } from "recharts";
 import info from "../data/Ist'emol narxlari indeksi dinamikasi.json";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import json from "../data/newGraph.json";
 import { useMap } from "../context/MapContext";
 import { AnimatePresence, motion } from "framer-motion";
 import styled from "styled-components";
 
 interface Props {
-  active: boolean;
+  active: string;
 }
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(Button)<Props>`
   margin: 0 12px;
   border-radius: 14px;
-  background-color: #fff;
+  background-color: ${(p) => (p.active === "contained" ? "#551fff" : "#fff")};
   width: 200px;
-  color: #551fff;
+  color: ${(p) => (p.active === "contained" ? "#fff" : "#551fff")};
   font-size: 18px;
   font-weight: 400;
   font-family: Roboto;
   box-shadow: 0px 4px 18px #d7d0ec;
   text-transform: capitalize;
   font-weight: 600;
-
-  &:hover {
-    background-color: #551fff;
-    color: #fff;
-  }
 `;
 
 export function SelectionChart() {
@@ -62,33 +64,48 @@ export function SelectionChart() {
             variant="h5"
             component="h2"
           >
-            O'zbekiston ist'emol narxlari indeksi dinamikasi
+            Sohalar boyicha so'nggi yillardagi ko'rsatkichlar
           </Typography>
           <Box height={40} display={"flex"}>
             <StyledButton
               size="small"
+              active={
+                picked === "Elektroenergiya iste`moli" ? "contained" : "text"
+              }
               onClick={() => setPicked("Elektroenergiya iste`moli")}
             >
               Agriculture
             </StyledButton>
             <StyledButton
               size="small"
+              active={picked === "qishloq xo'jaligi" ? "contained" : "text"}
               onClick={() => setPicked("qishloq xo'jaligi")}
             >
               Cunstruction
             </StyledButton>
             <StyledButton
+              active={
+                picked === "iste`mol mollari ishlab chiqarish"
+                  ? "contained"
+                  : "text"
+              }
               onClick={() => setPicked("iste`mol mollari ishlab chiqarish")}
             >
               Transport
             </StyledButton>
             <StyledButton
               size="small"
+              active={picked === "Qurilish ishlari" ? "contained" : "text"}
               onClick={() => setPicked("Qurilish ishlari")}
             >
               Goods
             </StyledButton>
-            <StyledButton size="small" onClick={() => setPicked("Transport")}>
+
+            <StyledButton
+              active={picked === "Transport" ? "contained" : "text"}
+              size="small"
+              onClick={() => setPicked("Transport")}
+            >
               Electricity
             </StyledButton>
           </Box>
